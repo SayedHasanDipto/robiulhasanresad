@@ -4,13 +4,15 @@ import React, { useState, useEffect } from "react";
 import { BookOpen, Calendar, Menu, X, Star } from "lucide-react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { useMagneticHover } from "@/hooks/useMagneticHover";
+import Image from "next/image";
+import HeroImg from "@/app/hero.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hijriDate, setHijriDate] = useState("");
   const [gregorianDate, setGregorianDate] = useState("");
-  
+
   // Track scroll progress for scroll indicator bar
   const { scrollYProgress } = useScroll();
 
@@ -63,11 +65,10 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 0.68, 0, 1] }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-white/80 backdrop-blur-md border-b border-emerald-100/50 py-3 shadow-sm shadow-slate-100/30"
-            : "bg-transparent py-5"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
+          ? "bg-white/80 backdrop-blur-md border-b border-emerald-100/50 py-3 shadow-sm shadow-slate-100/30"
+          : "bg-transparent py-5"
+          }`}
       >
         {/* Scroll Progress Bar */}
         <motion.div
@@ -78,13 +79,20 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo & Calligraphic Star */}
-            <div 
+            <div
               ref={logoMagneticRef}
               className="flex-shrink-0 flex items-center gap-2.5 group cursor-pointer"
             >
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-600 p-0.5 shadow-md shadow-amber-500/20 transition-transform duration-300">
-                <Star className="w-5 h-5 text-white fill-white" />
+              <div className="relative flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-600 p-0.5 shadow-md shadow-amber-500/20 transition-transform duration-300 overflow-hidden">
+                <Image
+                  src={HeroImg}
+                  alt="Robiul Hasan Resad"
+                  fill
+                  className="object-cover rounded-full"
+                  priority
+                />
               </div>
+
               <div className="flex flex-col">
                 <span className="font-serif text-lg font-bold text-emerald-800 tracking-wide uppercase leading-none transition-colors group-hover:text-emerald-700">
                   R. H. Resad
@@ -104,9 +112,8 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.05 + 0.2 }}
-                  className={`font-sans text-sm font-medium tracking-wide transition-colors duration-300 relative group py-2 ${
-                    scrolled ? "text-slate-700 hover:text-emerald-750" : "text-slate-800 hover:text-emerald-800"
-                  }`}
+                  className={`font-sans text-sm font-medium tracking-wide transition-colors duration-300 relative group py-2 ${scrolled ? "text-slate-700 hover:text-emerald-750" : "text-slate-800 hover:text-emerald-800"
+                    }`}
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-emerald-600 group-hover:w-full transition-all duration-350 rounded-full" />
@@ -115,7 +122,7 @@ export default function Navbar() {
             </div>
 
             {/* Hijri & Gregorian Calendar Widget */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -151,7 +158,7 @@ export default function Navbar() {
             transition={{ duration: 0.35, ease: [0.22, 0.68, 0, 1] }}
             className="lg:hidden fixed inset-x-0 top-[72px] z-40 bg-white/95 backdrop-blur-xl border-b border-emerald-100 shadow-xl overflow-hidden"
           >
-            <motion.div 
+            <motion.div
               initial="hidden"
               animate="visible"
               variants={{
@@ -175,7 +182,7 @@ export default function Navbar() {
               ))}
 
               {/* Mobile Date Widget */}
-              <motion.div 
+              <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 10 },
                   visible: { opacity: 1, y: 0 }

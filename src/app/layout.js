@@ -1,6 +1,7 @@
 import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
+import ClickEffect from "@/components/ClickEffect";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -28,6 +29,9 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning={true} className="min-h-full flex flex-col relative">
         {/* Grain overlay for cinematic aesthetic */}
         <div className="grain-overlay" />
+        
+        {/* Global luxurious mouse click ripple and particle effect */}
+        <ClickEffect />
         
         <SmoothScrollProvider>
           {children}

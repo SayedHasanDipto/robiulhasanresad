@@ -52,7 +52,7 @@ export default function ContactSection() {
       className="py-24 bg-gradient-to-b from-white via-stone-50 to-stone-100/30 text-slate-900 relative overflow-hidden"
     >
       {/* Decorative Rotating Geometric Graphic */}
-      <motion.div 
+      <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 60, ease: "linear", repeat: Infinity }}
         className="absolute bottom-[-100px] left-[-100px] w-64 h-64 text-emerald-800/[0.03] pointer-events-none"
@@ -65,7 +65,7 @@ export default function ContactSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -89,7 +89,7 @@ export default function ContactSection() {
         {/* Form and Info Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto items-stretch">
           {/* Left Column: Quick Contact Details */}
-          <motion.div 
+          <motion.div
             ref={leftCardRef}
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -122,7 +122,7 @@ export default function ContactSection() {
                       Email Address
                     </h4>
                     <p className="text-sm font-semibold text-slate-800 font-sans">
-                      robiulhasanresad@gmail.com
+                      mdresadislam2025@gmail.com
                     </p>
                   </div>
                 </div>
@@ -136,7 +136,7 @@ export default function ContactSection() {
                       Mobile Number
                     </h4>
                     <p className="text-sm font-semibold text-slate-800 font-sans">
-                      +880 1700-000000
+                      +880 1619-450849
                     </p>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function ContactSection() {
           </motion.div>
 
           {/* Right Column: Functional Form */}
-          <motion.div 
+          <motion.div
             ref={rightCardRef}
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -189,7 +189,7 @@ export default function ContactSection() {
               {/* Form success notification */}
               <AnimatePresence>
                 {isSuccess && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: -15, height: 0 }}
                     animate={{ opacity: 1, y: 0, height: "auto" }}
                     exit={{ opacity: 0, y: -15, height: 0 }}
